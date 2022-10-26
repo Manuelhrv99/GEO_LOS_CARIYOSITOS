@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    {% extends 'layout.html' %}
+
+    {% block title %}Metricas{% endblock %}
+
+    {% block content %}
+    {{block.super}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if longitude %}
+                <img class="img-responsive" src="data:image/png;base64, {{longitude|safe}}">
+                {% endif %}
+            </div>
+            <div class="col">
+                {% if latitude %}
+                <img src="data:image/png;base64, {{latitude|safe}}">
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                {% if code %}
+                <img src="data:image/png;base64, {{code|safe}}">
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                {% if transport %}
+                <img src="data:image/png;base64, {{transport|safe}}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
